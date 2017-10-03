@@ -1,5 +1,5 @@
 import sys
-import sqlite3
+
 
 class Entrada:
     def __init__(self, pelicula_id, funcion, cantidad):
@@ -11,6 +11,20 @@ class Pelicula:
     def __init__(self, id, nombre):
         self.id = id
         self.nombre = nombre
+
+#Patrón singleton
+class Cine:
+    instancia = None
+    @classmethod
+    def get_instance(cls, cine):
+        if cls.instancia == None:
+            if cine == 'CineStark':
+                cls.instancia = CineStark()
+            elif cine == 'CinePlaneta':
+                cls.instancia = CinePlaneta()
+            else:
+                return Cine()
+        return cls.instancia
 
 class CinePlaneta:
     def __init__(self):
@@ -38,7 +52,7 @@ class CinePlaneta:
         return len(self.entradas)
 
 
-
+#Patrón factory
 class CineStark:
     def __init__(self):
         peliculaD = Pelicula(1,  'Desparecido')
@@ -68,6 +82,7 @@ class CineFactory:
         elif cine == '2':
             return CineStark()
 
+#Patrón Fachada
 class GestorEntrada:
     def comprar_entrada(seflf, cine):
         peliculas = cine.listar_peliculas()
@@ -84,7 +99,7 @@ class GestorEntrada:
         codigo_entrada = cine.guardar_entrada(pelicula_elegida, funcion_elegida, cantidad_entradas)
         print('Se realizó la compra de la entrada. Código es {}'.format(codigo_entrada))
 
-
+#Patrón fachada
 class Plataforma:
     def mostrar_menu2(self):
         print('********************')
@@ -133,19 +148,7 @@ class Plataforma:
             else:
                 print(opcion)
 
-class SQL:
-    def sqlite3(self):
-        conn = sqlite3.connect('C:\Users\user\Documents\SW-Taller2\BD')
-        c = conn.cursor()
-
-    def agregar_cine(self):
-        c.execute('''CREATE TABLE CINES
-            ()''')
-
-
-
 def main():
-    #bd = SQL()
     plataforma = Plataforma()
     plataforma.mostrar_plataforma()
 

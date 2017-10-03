@@ -1,0 +1,28 @@
+﻿PREGUNTA 1
+
+Single Responsibility:
+Cada módulo se debe centrar en un solo objetivo. El main() se encarga de guardar y mostrar información y no cumple 
+con el objetivo de Single Responsability
+
+Open Close:
+En las clases CineStark y CinePlaneta, se deberán modificar por separado. Esto permitirá que puedan extenderse en caso
+hayan funciones distintas para cada cine cuando esten cerradas para modificarse.
+
+Interface Segregation:
+Ligado al Single Responsability. No se cumple en el guardar entradas porque en realidad no depende del cine.
+
+
+
+PREGUNTA 2 - Archivo: patrones_p2.py
+
+Patrón Factory Method:
+Se usó esté patrón para centralizar la creación de los dos cines.
+
+
+Patrón Fachada:
+Se hizo una fachada para la parte de la compra de entradas, un "gestor" para que contenga todo el procedimiento;
+además, también se hizo lo mismo para la plataforma del programa; es decir, se creo una clase "plataforma" para 
+que contenga toda la información a presentar.
+
+Patrón Singleton:
+Se aseguró que los cines tengan una sola instancia en la creación de la clase Cine.
